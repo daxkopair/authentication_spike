@@ -143,6 +143,7 @@
     <Compile Include="web\application\catalogbrowsing\stubs\StubStoreDirectory.cs" />
     <Compile Include="web\application\catalogbrowsing\inputmodels\VIewTheMainDepartmentsRequest.cs" />
     <Compile Include="web\application\interceptors\AttachCustomPrincipal.cs" />
+    <Compile Include="web\application\interceptors\DisplayAuthenticationDetails.cs" />
     <Compile Include="web\application\messages\AddItemsToTheCartMessage.cs" />
     <Compile Include="web\application\messages\IAddedItemsToTheCart.cs" />
     <Compile Include="web\core\AddItemsToTheCart.cs" />
@@ -187,6 +188,7 @@
     <Compile Include="web\core\Routes.cs" />
     <Compile Include="web\core\RouteTable.cs" />
     <Compile Include="web\core\stubs\StubMissingCommand.cs" />
+    <Compile Include="web\core\stubs\StubPrincipal.cs" />
     <Compile Include="web\core\stubs\StubRequestFactory.cs" />
     <Compile Include="web\core\GetTheCurrentTicket.cs" />
     <Compile Include="web\core\UrlBuilder.cs" />

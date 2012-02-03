@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Web;
 using System.Web.Compilation;
+using System.Web.Security;
 using app.utility.containers;
 using app.web.core;
 using app.web.core.aspnet;
@@ -37,6 +39,24 @@ namespace app.tasks.startup.steps
       startup_service.register_instance<IRegisterRoutes>(route_table);
       startup_service.register<IFindCommands, CommandRegistry>();
       startup_service.register<IProcessRequests, FrontController>();
+
+      startup_service.register_instance<GetTheCurrentTicket>(() => create_the_current_ticket());
+      startup_service.register_instance<GetTheCurrentUserIDFromTicket>(ticket =>
+        ticket == null ? 0 : long.Parse(ticket.UserData));
+      startup_service.register_instance<PrincipalFactory>((id) => new StubPrincipal(id));
+      startup_service.register_instance<PrincipalSwitch>(new_principal =>
+      {
+        Thread.CurrentPrincipal = new_principal;
+        HttpContext.Current.User = new_principal;
+      });
+
+    }
+
+    FormsAuthenticationTicket create_the_current_ticket()
+    {
+      var http_cookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];
+      if (http_cookie == null) return null;
+      return FormsAuthentication.Decrypt(http_cookie.Value);
     }
   }
 }
