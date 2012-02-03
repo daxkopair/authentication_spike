@@ -138,7 +138,6 @@
     <Compile Include="StartupItemsSpecs.cs" />
     <Compile Include="StartupSpecs.cs" />
     <Compile Include="StartupStepFactorySpecs.cs" />
-    <Compile Include="UpdaterunningTotalsHandlerSpecs.cs" />
     <Compile Include="ValueReturningBlockBuilderSpecs.cs" />
     <Compile Include="StubSpecs.cs" />
     <Compile Include="utility\ObjectFactory.cs" />
