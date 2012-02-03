@@ -37,7 +37,7 @@ namespace app.tasks.startup.steps
       startup_service.register<IDisplayInformation, WebFormDisplayEngine>();
       startup_service.register_instance<IEnumerable<IProcessOneRequest>>(route_table);
       startup_service.register_instance<IRegisterRoutes>(route_table);
-      startup_service.register_instance<GetTheCurrentPrincipal<StubPrincipal>>(x => (StubPrincipal)x);
+      startup_service.register_instance<GetTheCurrentPrincipal>(() => HttpContext.Current.User);
       startup_service.register<IFindCommands, CommandRegistry>();
       startup_service.register<IProcessRequests, FrontController>();
 

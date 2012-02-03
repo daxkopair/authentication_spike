@@ -2,5 +2,5 @@
 
 namespace app.web.core
 {
-    public delegate PrincipalType GetTheCurrentPrincipal<PrincipalType>(IPrincipal principal);
+    public delegate IPrincipal GetTheCurrentPrincipal();
 }

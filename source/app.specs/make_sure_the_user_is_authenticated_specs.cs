@@ -1,4 +1,5 @@
-﻿using Machine.Specifications;
+﻿using System.Web;
+using Machine.Specifications;
 using app.web.application.interceptors;
 using app.web.core;
 using app.web.core.stubs;
@@ -23,7 +24,7 @@ namespace app.specs
         {
           redirect = depends.on<IRedirect>();
           request = fake.an<IProvideDetailsToCommands>();
-          depends.on<GetTheCurrentPrincipal<StubPrincipal>>(() => new StubPrincipal(1));
+          depends.on<GetTheCurrentPrincipal>(() => new StubPrincipal(1));
         };
 
         Because b = () =>
@@ -32,6 +33,26 @@ namespace app.specs
 
         It should_not_redirect_to_the_alternative_request = () =>
           redirect.never_received(x => x.to<SomeRequest>());
+
+        static IRedirect redirect;
+        static IProvideDetailsToCommands request;
+      }
+
+      public class and_the_user_is_not_authenticated
+      {
+        Establish c = () =>
+        {
+          redirect = depends.on<IRedirect>();
+          request = fake.an<IProvideDetailsToCommands>();
+          depends.on<GetTheCurrentPrincipal>(() => new StubPrincipal(0));
+        };
+
+        Because b = () =>
+          sut.process(request);
+
+
+        It should_redirect_to_the_alternate_path = () =>
+          redirect.received(x => x.to<SomeRequest>());
 
         static IRedirect redirect;
         static IProvideDetailsToCommands request;
