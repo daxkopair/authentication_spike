@@ -22,58 +22,55 @@ namespace app.specs
         Establish context = () =>
         {
           request = fake.an<IProvideDetailsToCommands>();
-           the_uri = new Uri("blah"); 
+          the_uri = new Uri("http://localhost/blah.aspx");
           depends.on<GetTheCurrentUrl_Behaviour>(() => the_uri);
           depends.on<IsAuthorizedUrl_Behaviour>(url =>
-              {
-                  url.ShouldEqual(the_uri);
-                  return true;
-              });
+          {
+            url.Equals(the_uri).ShouldBeTrue();
+            return true;
+          });
           redirect = depends.on<IRedirect>();
         };
 
         Because b = () => sut.process(request);
 
         It should_not_redirect_to_the_redirect_request = () =>
-        {
           redirect.never_received(x => x.to<SomeRequest>());
+
+        static IRedirect redirect;
+        static IProvideDetailsToCommands request;
+        static Uri the_uri;
+      }
+
+      public class and_the_user_ids_are_not_the_same
+      {
+        Establish context = () =>
+        {
+          request = fake.an<IProvideDetailsToCommands>();
+          the_uri = new Uri("http://localhsot/sdfsdf/as.aspx");
+          depends.on<GetTheCurrentUrl_Behaviour>(() => the_uri);
+          depends.on<IsAuthorizedUrl_Behaviour>(url =>
+          {
+            url.Equals(the_uri).ShouldBeTrue();
+            return false;
+          });
+          redirect = depends.on<IRedirect>();
+        };
+
+        Because b = () =>
+        {
+          sut.process(request);
+        };
+
+        It should_redirect_to_the_redirect_request = () =>
+        {
+          redirect.received(x => x.to<SomeRequest>());
         };
 
         static IRedirect redirect;
         static IProvideDetailsToCommands request;
-          static Uri the_uri;
+        static Uri the_uri;
       }
-
-
-        public class and_the_user_ids_are_not_the_same
-        {
-            Establish context = () =>
-                {
-                    request = fake.an<IProvideDetailsToCommands>();
-                    the_uri = new Uri("blah");
-                    depends.on<GetTheCurrentUrl_Behaviour>(() => the_uri);
-                    depends.on<IsAuthorizedUrl_Behaviour>(url =>
-                        {
-                            url.ShouldEqual(the_uri);
-                            return false;
-                        });
-                    redirect = depends.on<IRedirect>();
-                };
-
-            Because b = () =>
-                {
-                    sut.process(request);
-                };
-
-            It should_redirect_to_the_redirect_request = () =>
-                {
-                    redirect.received(x => x.to<SomeRequest>());
-                };
-
-            static IRedirect redirect;
-            static IProvideDetailsToCommands request;
-            static Uri the_uri;
-        }
     }
 
     public class SomeRequest

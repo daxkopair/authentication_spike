@@ -19,7 +19,7 @@ CodeFile="DepartmentBrowser.aspx.cs"
               <tr class="ListItem">
                <td><a href="<%=number %2 == 0
                   ? UrlBuilder.url_to_run<ViewTheDepartmentsInDepartmentRequest>()
-                  : "{0}".format_using(UrlBuilder.url_to_run<ViewTheProductsInADepartmentRequest>())%>"><%=department.name%></a></td>
+                  : "{0}?id={1}".format_using(UrlBuilder.url_to_run<ViewTheProductsInADepartmentRequest>(),(number % 4 == 0 ? "1002":"1001"))%>"><%=department.name%></a></td>
            	  </tr>        
               <%
                 number++;
