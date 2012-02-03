@@ -47,11 +47,32 @@ namespace app.specs
 
         public class and_the_user_ids_are_not_the_same
         {
+            Establish context = () =>
+                {
+                    request = fake.an<IProvideDetailsToCommands>();
+                    the_uri = new Uri("blah");
+                    depends.on<GetTheCurrentUrl_Behaviour>(() => the_uri);
+                    depends.on<IsAuthorizedUrl_Behaviour>(url =>
+                        {
+                            url.ShouldEqual(the_uri);
+                            return false;
+                        });
+                    redirect = depends.on<IRedirect>();
+                };
+
+            Because b = () =>
+                {
+                    sut.process(request);
+                };
+
             It should_redirect_to_the_redirect_request = () =>
                 {
+                    redirect.received(x => x.to<SomeRequest>());
                 };
 
             static IRedirect redirect;
+            static IProvideDetailsToCommands request;
+            static Uri the_uri;
         }
     }
 
