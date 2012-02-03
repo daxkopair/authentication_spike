@@ -132,6 +132,7 @@
     <Compile Include="GreedyConstructorSelectionSpecs.cs" />
     <Compile Include="LogSpecs.cs" />
     <Compile Include="MessageGeneratorSpecs.cs" />
+    <Compile Include="ObjectExtensionsSpecs.cs" />
     <Compile Include="RequestCommandSpecs.cs" />
     <Compile Include="StartSpecs.cs" />
     <Compile Include="StartupChainBuilderSpecs.cs" />
