@@ -2,5 +2,5 @@
 
 namespace app.web.core
 {
-  public delegate IPrincipal PrincipalFactory(int id);
+  public delegate IPrincipal PrincipalFactory(long id);
 }

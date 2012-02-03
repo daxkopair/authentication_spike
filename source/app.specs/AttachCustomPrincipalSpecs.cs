@@ -22,7 +22,7 @@ namespace app.specs
       {
         fake_principal = fake.an<IPrincipal>();
         ticket = new FormsAuthenticationTicket(1, String.Empty, DateTime.Now, DateTime.Now, false, "1001");
-        depends.on<TicketFactory>(() => ticket);
+        depends.on<GetTheCurrentTicket>(() => ticket);
         depends.on<PrincipalFactory>(x =>
         {
           x.ShouldEqual(1001);
@@ -40,7 +40,6 @@ namespace app.specs
         });
 
         request = fake.an<IProvideDetailsToCommands>();
-        the_principal_created_from_the_ticket = fake.an<IPrincipal>();
       };
 
       Because b = () =>
@@ -49,8 +48,8 @@ namespace app.specs
       It should_run_the_principal_switch_behaviour_with_the_principal_created_from_the_current_ticket_information =
         () =>
         {
-          thread_principal.ShouldEqual(the_principal_created_from_the_ticket);
-          web_principal.ShouldEqual(the_principal_created_from_the_ticket);
+          thread_principal.ShouldEqual(fake_principal);
+          web_principal.ShouldEqual(fake_principal);
         };
 
       static IPrincipal thread_principal;

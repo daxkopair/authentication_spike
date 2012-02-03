@@ -188,7 +188,7 @@
     <Compile Include="web\core\RouteTable.cs" />
     <Compile Include="web\core\stubs\StubMissingCommand.cs" />
     <Compile Include="web\core\stubs\StubRequestFactory.cs" />
-    <Compile Include="web\core\TicketFactory.cs" />
+    <Compile Include="web\core\GetTheCurrentTicket.cs" />
     <Compile Include="web\core\UrlBuilder.cs" />
     <Compile Include="web\core\ViewAReport.cs" />
   </ItemGroup>
