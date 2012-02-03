@@ -138,6 +138,7 @@
     <Compile Include="web\application\catalogbrowsing\IProvideInformationAboutTheStore.cs" />
     <Compile Include="web\application\catalogbrowsing\queries\GetTheDepartmentsInADepartment.cs" />
     <Compile Include="web\application\catalogbrowsing\queries\GetTheMainDepartments.cs" />
+    <Compile Include="web\application\catalogbrowsing\reports\Login.cs" />
     <Compile Include="web\application\catalogbrowsing\reports\ViewTheDepartmentsInADepartment.cs" />
     <Compile Include="web\application\catalogbrowsing\reports\ViewTheMainDepartments.cs" />
     <Compile Include="web\application\catalogbrowsing\reports\ViewTheProductsInADepartment.cs" />
@@ -145,6 +146,8 @@
     <Compile Include="web\application\catalogbrowsing\inputmodels\VIewTheMainDepartmentsRequest.cs" />
     <Compile Include="web\application\interceptors\AttachCustomPrincipal.cs" />
     <Compile Include="web\application\interceptors\DisplayAuthenticationDetails.cs" />
+    <Compile Include="web\application\login\LoginRequest.cs" />
+    <Compile Include="web\application\login\LogoutRequest.cs" />
     <Compile Include="web\application\messages\AddItemsToTheCartMessage.cs" />
     <Compile Include="web\application\messages\IAddedItemsToTheCart.cs" />
     <Compile Include="web\core\AddItemsToTheCart.cs" />
@@ -170,6 +173,7 @@
     <Compile Include="web\core\IFetchInformation.cs" />
     <Compile Include="web\core\IInterceptWithoutForwardingTheCall.cs" />
     <Compile Include="web\core\IReturnTheCustomPrincipal.cs" />
+    <Compile Include="web\core\IsAuthorizedUser.cs" />
     <Compile Include="web\core\ITriggerDisplayOfAReport.cs" />
     <Compile Include="web\core\IDisplayInformation.cs" />
     <Compile Include="web\core\IFindCommands.cs" />

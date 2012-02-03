@@ -130,6 +130,7 @@
     <Compile Include="ExpressionSpikes.cs" />
     <Compile Include="FrontControllerSpecs.cs" />
     <Compile Include="GreedyConstructorSelectionSpecs.cs" />
+    <Compile Include="login_specs.cs" />
     <Compile Include="LogSpecs.cs" />
     <Compile Include="MessageGeneratorSpecs.cs" />
     <Compile Include="ObjectExtensionsSpecs.cs" />

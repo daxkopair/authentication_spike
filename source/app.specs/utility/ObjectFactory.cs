@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Web;
+using System.Web.Security;
 using app.utility.containers;
 using developwithpassion.specifications.core;
 using developwithpassion.specifications.extensions;
@@ -64,6 +65,11 @@ namespace app.specs.utility
 
     public class web
     {
+      public static FormsAuthenticationTicket create_fake_authentication_ticket()
+      {
+        return new FormsAuthenticationTicket(1, "some_name", DateTime.Now, DateTime.Now,
+                                             true, "1001");
+      }
       public static HttpContext create_http_context()
       {
         return new HttpContext(create_request(), create_response());
