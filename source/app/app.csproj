@@ -169,6 +169,7 @@
     <Compile Include="web\core\CommandRegistry.cs" />
     <Compile Include="web\core\CreateAuthenticationTicketBehaviour.cs" />
     <Compile Include="web\core\FrontController.cs" />
+    <Compile Include="web\core\GetTheCurrentUrl_Behaviour.cs" />
     <Compile Include="web\core\GetTheCurrentUserIDFromTicket.cs" />
     <Compile Include="web\core\IChangeSystemState.cs" />
     <Compile Include="web\core\IConfigureARoute.cs" />
