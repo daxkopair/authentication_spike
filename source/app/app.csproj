@@ -146,6 +146,7 @@
     <Compile Include="web\application\catalogbrowsing\inputmodels\VIewTheMainDepartmentsRequest.cs" />
     <Compile Include="web\application\interceptors\AttachCustomPrincipal.cs" />
     <Compile Include="web\application\interceptors\DisplayAuthenticationDetails.cs" />
+    <Compile Include="web\application\interceptors\MakeSureTheUserIsAuthenticated.cs" />
     <Compile Include="web\application\login\LoginRequest.cs" />
     <Compile Include="web\application\login\LogoutRequest.cs" />
     <Compile Include="web\application\messages\AddItemsToTheCartMessage.cs" />
@@ -163,8 +164,10 @@
     <Compile Include="web\core\aspnet\stubs\StubPathRegistry.cs" />
     <Compile Include="web\core\aspnet\WebFormDisplayEngine.cs" />
     <Compile Include="web\core\aspnet\WebFormRegistry.cs" />
+    <Compile Include="web\core\AssociateTicketWithTheCurrentUser.cs" />
     <Compile Include="web\core\ChainedAction.cs" />
     <Compile Include="web\core\CommandRegistry.cs" />
+    <Compile Include="web\core\CreateAuthenticationTicket.cs" />
     <Compile Include="web\core\FrontController.cs" />
     <Compile Include="web\core\GetTheCurrentUserIDFromTicket.cs" />
     <Compile Include="web\core\IChangeSystemState.cs" />
