@@ -4,9 +4,16 @@ namespace app.web.application.catalogbrowsing.reports
 {
   public class Logout : IChangeSystemState
   {
-    public void process(IProvideDetailsToCommands request)
+      Logout_Behaviour logout_behavoir;
+
+      public Logout(Logout_Behaviour logout_behavoir)
+      {
+          this.logout_behavoir = logout_behavoir;
+      }
+
+      public void process(IProvideDetailsToCommands request)
     {
-      throw new System.NotImplementedException();
+        logout_behavoir();
     }
   }
 }
