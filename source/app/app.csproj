@@ -127,6 +127,7 @@
     <Compile Include="utility\logging\ILog.cs" />
     <Compile Include="utility\ITimeThings.cs" />
     <Compile Include="utility\logging\Log.cs" />
+    <Compile Include="utility\ObjectExtensions.cs" />
     <Compile Include="utility\Stub.cs" />
     <Compile Include="utility\ValueReturningBlockBuilder.cs" />
     <Compile Include="utility\Wrap.cs" />
@@ -168,6 +169,7 @@
     <Compile Include="web\core\ICreateControllerRequests.cs" />
     <Compile Include="web\core\IFetchInformation.cs" />
     <Compile Include="web\core\IInterceptWithoutForwardingTheCall.cs" />
+    <Compile Include="web\core\IReturnTheCustomPrincipal.cs" />
     <Compile Include="web\core\ITriggerDisplayOfAReport.cs" />
     <Compile Include="web\core\IDisplayInformation.cs" />
     <Compile Include="web\core\IFindCommands.cs" />

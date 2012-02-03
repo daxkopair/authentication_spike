@@ -37,10 +37,11 @@ namespace app.tasks.startup.steps
       startup_service.register<IDisplayInformation, WebFormDisplayEngine>();
       startup_service.register_instance<IEnumerable<IProcessOneRequest>>(route_table);
       startup_service.register_instance<IRegisterRoutes>(route_table);
+      startup_service.register_instance<GetTheCurrentPrincipal<StubPrincipal>>(x => (StubPrincipal)x);
       startup_service.register<IFindCommands, CommandRegistry>();
       startup_service.register<IProcessRequests, FrontController>();
 
-      startup_service.register_instance<GetTheCurrentTicket>(() => create_the_current_ticket());
+      startup_service.register_instance<GetTheCurrentTicket>(create_the_current_ticket);
       startup_service.register_instance<GetTheCurrentUserIDFromTicket>(ticket =>
         ticket == null ? 0 : long.Parse(ticket.UserData));
       startup_service.register_instance<PrincipalFactory>((id) => new StubPrincipal(id));
