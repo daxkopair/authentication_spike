@@ -1,6 +1,7 @@
 using System.Web.Security;
 using Machine.Specifications;
 using app.specs.utility;
+using app.web.application.catalogbrowsing.reports;
 using app.web.core;
 using developwithpassion.specifications.rhinomocks;
 
@@ -19,9 +20,14 @@ namespace app.specs
       {
         Establish c = () =>
         {
-          depends.on<IsAuthorizedUser>((user, pass) => true);
-          request = fake.an<IProvideDetailsToCommands>();
-          the_created_ticket = ObjectFactory.web.create_fake_authentication_ticket();
+            depends.on<IsAuthorizedUser>((user, pass) => true);
+            request = fake.an<IProvideDetailsToCommands>();
+            depends.on<CreateAuthenticationTicket>(username => the_created_ticket);
+            depends.on<AssociateTicketWithCurrentUser>(x =>
+                {
+                    x.ShouldEqual(the_created_ticket);
+                });
+            the_created_ticket = ObjectFactory.web.create_fake_authentication_ticket();
         };
         
         Because b = () =>

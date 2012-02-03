@@ -6,7 +6,7 @@ namespace app.web.application.catalogbrowsing.reports
   {
     public void process(IProvideDetailsToCommands request)
     {
-      throw new System.NotImplementedException();
+        
     }
   }
 }
