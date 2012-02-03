@@ -177,6 +177,7 @@
     <Compile Include="web\core\IInterceptWithoutForwardingTheCall.cs" />
     <Compile Include="web\core\IReturnTheCustomPrincipal.cs" />
     <Compile Include="web\core\Authentication_Behaviour.cs" />
+    <Compile Include="web\core\IsAuthorizedUrl_Behaviour.cs" />
     <Compile Include="web\core\ITriggerDisplayOfAReport.cs" />
     <Compile Include="web\core\IDisplayInformation.cs" />
     <Compile Include="web\core\IFindCommands.cs" />
@@ -187,6 +188,7 @@
     <Compile Include="web\core\aspnet\IFindViewsToDisplayReportModels.cs" />
     <Compile Include="web\core\IRedirect.cs" />
     <Compile Include="web\core\IRegisterRoutes.cs" />
+    <Compile Include="web\core\make_sure_the_user_id_in_the_url_matches_the_user_id_in_the_principal.cs" />
     <Compile Include="web\core\PrincipalFactory.cs" />
     <Compile Include="web\core\PrincipalSwitch.cs" />
     <Compile Include="web\core\RedirectFeature.cs" />
