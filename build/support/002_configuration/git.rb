@@ -2,7 +2,7 @@ configs ={
   :git => {
     :user => "daxkopair",
     :remotes => %w[stgwilli],
-    :repo => 'app' 
+    :repo => 'authentication_spike' 
   }
 }
 configatron.configure_from_hash(configs)
