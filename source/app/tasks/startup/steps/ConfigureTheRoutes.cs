@@ -28,6 +28,8 @@ namespace app.tasks.startup.steps
 
       Routes.to.a_report<ViewTheProductsInADepartmentRequest, ViewTheProductsInADepartment>()
         .intercept_with<DisplayAuthenticationDetails>()
+        .intercept_with<make_sure_the_user_id_in_the_url_matches_the_user_id_in_the_principal<LogoutRequest>>()
+        .intercept_with<MakeSureTheUserIsAuthenticated<ViewTheMainDepartmentsRequest>>()
         .intercept_with<AttachCustomPrincipal>();
 
       Routes.to.a_command<LoginRequest, Login, ViewTheMainDepartmentsRequest>()
