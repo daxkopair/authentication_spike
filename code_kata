@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+require_relative 'git_utils.rb'
+
+exit_if_on_the_master_branch
+
+`git add -A`
+`git commit -m "Committing"`
+
+puts "Enter a meaningful branch name (leave empty if you don't need one)"
+branch_name = readline.chomp.strip.gsub(" ","_").downcase
+
+if (branch_name != "")
+  checkout(branch_name)
+end
+
+`git checkout master`
+
+exit_if_not_on_the_master_branch
+checkout("codekata")
+

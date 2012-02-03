@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EAA828F4-419B-4078-8EB6-533FBD86E800}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>build</RootNamespace>
+    <AssemblyName>build</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <PublishUrl>http://localhost/build/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="build.bat" />
+    <None Include="build\support\001_utils\configatron.rb" />
+    <None Include="build\support\001_utils\file.rb" />
+    <None Include="build\support\001_utils\string.rb" />
+    <None Include="build\support\001_utils\template_file.rb" />
+    <None Include="build\support\001_utils\unique_files.rb" />
+    <None Include="build\support\001_utils\windows\msbuild_runner.rb" />
+    <None Include="build\support\001_utils\windows\sevenzip.rb" />
+    <None Include="build\support\002_configuration\git.rb" />
+    <None Include="build\support\002_configuration\project.rb" />
+    <None Include="build\support\002_configuration\windows\db.rb" />
+    <None Include="build\support\002_configuration\windows\db_dev.rb.customize" />
+    <None Include="build\support\002_configuration\windows\machine_specs.rb" />
+    <None Include="build\support\003_tasks\01_templates.rb" />
+    <None Include="build\support\003_tasks\configuration.rb" />
+    <None Include="build\support\003_tasks\windows\01_templates.rb" />
+    <None Include="build\support\003_tasks\windows\build.rb" />
+    <None Include="build\support\003_tasks\windows\configuration.rb" />
+    <None Include="build\support\003_tasks\windows\db.rb.ignore" />
+    <None Include="build\support\003_tasks\windows\git.rb" />
+    <None Include="build\support\003_tasks\windows\git.rb.erb" />
+    <None Include="build\support\003_tasks\windows\growl.rb" />
+    <None Include="build\support\003_tasks\windows\machine_specs.rb" />
+    <None Include="change" />
+    <None Include="code_kata" />
+    <None Include="continuous_testing" />
+    <None Include="docs\conventions.markdown" />
+    <None Include="fetch_latest" />
+    <None Include="push" />
+    <None Include="Rakefile" />
+    <None Include="run_first" />
+    <None Include="save_my_changes" />
+    <None Include="source\config\our_custom_config.txt.erb" />
+    <None Include="source\config\web.config.erb" />
+    <None Include="start_new_exercise" />
+    <None Include="tools\ahk\general.ahk" />
+    <None Include="tools\ahk\resharper.ahk" />
+    <None Include="tools\ahk\spaces_as_underscores.ahk" />
+    <None Include="tools\ahk\visual_studio.ahk" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include=".gitignore" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

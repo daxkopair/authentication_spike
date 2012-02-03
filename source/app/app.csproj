@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{922EF2FE-820B-4ED5-9D64-7D716E135719}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>app</RootNamespace>
+    <AssemblyName>app</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\artifacts\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Calculator.cs" />
+    <Compile Include="cartdetails\CartDetailModel.cs" />
+    <Compile Include="cartdetails\RunningTotal.cs" />
+    <Compile Include="cartdetails\UpdateRunningTotalsHandler.cs" />
+    <Compile Include="MessageGenerator.cs" />
+    <Compile Include="tasks\startup\IBuildStartupChains.cs" />
+    <Compile Include="tasks\startup\ICreateStartupSteps.cs" />
+    <Compile Include="tasks\startup\IProvideStartupServices.cs" />
+    <Compile Include="tasks\startup\IRunAStartupStep.cs" />
+    <Compile Include="tasks\startup\Start.cs" />
+    <Compile Include="tasks\startup\Startup.cs" />
+    <Compile Include="tasks\startup\StartupChainBuilder.cs" />
+    <Compile Include="tasks\startup\StartupItems.cs" />
+    <Compile Include="tasks\startup\StartupStepFactory.cs" />
+    <Compile Include="tasks\startup\steps\ConfigureCommands.cs" />
+    <Compile Include="tasks\startup\steps\ConfigureTheRoutes.cs" />
+    <Compile Include="tasks\startup\steps\ConfiguringTheContainer.cs" />
+    <Compile Include="tasks\startup\steps\ConfiguringTheFrontController.cs" />
+    <Compile Include="tasks\startup\steps\ConfiguringTheQueries.cs" />
+    <Compile Include="utility\BlockBuilderFactory.cs" />
+    <Compile Include="utility\bus\ICreateBusinessEvents.cs" />
+    <Compile Include="utility\bus\IHandleABusinessEventOf.cs" />
+    <Compile Include="utility\bus\IPublishEvents.cs" />
+    <Compile Include="utility\bus\IRepresentAMeaningfulBusinessEvent.cs" />
+    <Compile Include="utility\containers\basic\AutomaticItemFactory.cs" />
+    <Compile Include="utility\containers\basic\BasicItemFactory.cs" />
+    <Compile Include="utility\containers\basic\DependencyFactory.cs" />
+    <Compile Include="utility\containers\basic\GreedyConstructorSelection.cs" />
+    <Compile Include="utility\containers\basic\ICreateOneDependency.cs" />
+    <Compile Include="utility\containers\basic\IPickTheCtorOnAType.cs" />
+    <Compile Include="utility\containers\basic\TypeMatchCriteria.cs" />
+    <Compile Include="utility\EnumerableExtensions.cs" />
+    <Compile Include="utility\ICreateBlockBuilders.cs" />
+    <Compile Include="utility\CallingTypeResolver.cs" />
+    <Compile Include="utility\containers\basic\DependencyContainer.cs" />
+    <Compile Include="utility\containers\basic\DependencyFactories.cs" />
+    <Compile Include="utility\containers\basic\ICreateASingleItem.cs" />
+    <Compile Include="utility\containers\basic\IFindFactoriesForTypes.cs" />
+    <Compile Include="utility\containers\basic\ItemCreationExceptionFactory.cs" />
+    <Compile Include="utility\containers\basic\MissingFactoryExceptionProvider.cs" />
+    <Compile Include="utility\containers\Container.cs" />
+    <Compile Include="utility\containers\ContainerFacadeResolution.cs" />
+    <Compile Include="utility\containers\IFetchDependencies.cs" />
+    <Compile Include="utility\IEnhanceValueReturningCodeBlocks.cs" />
+    <Compile Include="utility\IResolveTheCallingType.cs" />
+    <Compile Include="utility\IRunABehaviour.cs" />
+    <Compile Include="utility\logging\ICreateLoggers.cs" />
+    <Compile Include="utility\logging\ILog.cs" />
+    <Compile Include="utility\ITimeThings.cs" />
+    <Compile Include="utility\logging\Log.cs" />
+    <Compile Include="utility\Stub.cs" />
+    <Compile Include="utility\ValueReturningBlockBuilder.cs" />
+    <Compile Include="utility\Wrap.cs" />
+    <Compile Include="web\application\catalogbrowsing\inputmodels\ViewTheDepartmentsInDepartmentRequest.cs" />
+    <Compile Include="web\application\catalogbrowsing\inputmodels\ViewTheProductsInADepartmentRequest.cs" />
+    <Compile Include="web\application\catalogbrowsing\queries\GetTheProductsInADepartment.cs" />
+    <Compile Include="web\application\catalogbrowsing\reportmodels\DepartmentItem.cs" />
+    <Compile Include="web\application\catalogbrowsing\IProvideInformationAboutTheStore.cs" />
+    <Compile Include="web\application\catalogbrowsing\queries\GetTheDepartmentsInADepartment.cs" />
+    <Compile Include="web\application\catalogbrowsing\queries\GetTheMainDepartments.cs" />
+    <Compile Include="web\application\catalogbrowsing\reports\ViewTheDepartmentsInADepartment.cs" />
+    <Compile Include="web\application\catalogbrowsing\reports\ViewTheMainDepartments.cs" />
+    <Compile Include="web\application\catalogbrowsing\reports\ViewTheProductsInADepartment.cs" />
+    <Compile Include="web\application\catalogbrowsing\stubs\StubStoreDirectory.cs" />
+    <Compile Include="web\application\catalogbrowsing\inputmodels\VIewTheMainDepartmentsRequest.cs" />
+    <Compile Include="web\application\messages\AddItemsToTheCartMessage.cs" />
+    <Compile Include="web\application\messages\IAddedItemsToTheCart.cs" />
+    <Compile Include="web\core\AddItemsToTheCart.cs" />
+    <Compile Include="web\core\aspnet\ASPHandler.cs" />
+    <Compile Include="web\application\catalogbrowsing\reportmodels\ProductItem.cs" />
+    <Compile Include="web\core\aspnet\GetTheCurrentlyExecutingRequest.cs" />
+    <Compile Include="web\core\aspnet\IDisplayA.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\core\aspnet\IFindPathsToViews.cs" />
+    <Compile Include="web\core\aspnet\PageFactory.cs" />
+    <Compile Include="web\core\aspnet\ResponseWriter.cs" />
+    <Compile Include="web\core\aspnet\stubs\StubPathRegistry.cs" />
+    <Compile Include="web\core\aspnet\WebFormDisplayEngine.cs" />
+    <Compile Include="web\core\aspnet\WebFormRegistry.cs" />
+    <Compile Include="web\core\ChainedAction.cs" />
+    <Compile Include="web\core\CommandRegistry.cs" />
+    <Compile Include="web\core\FrontController.cs" />
+    <Compile Include="web\core\IChangeSystemState.cs" />
+    <Compile Include="web\core\IConfigureARoute.cs" />
+    <Compile Include="web\core\ICreateControllerRequests.cs" />
+    <Compile Include="web\core\IFetchInformation.cs" />
+    <Compile Include="web\core\IInterceptWithoutForwardingTheCall.cs" />
+    <Compile Include="web\core\ITriggerDisplayOfAReport.cs" />
+    <Compile Include="web\core\IDisplayInformation.cs" />
+    <Compile Include="web\core\IFindCommands.cs" />
+    <Compile Include="web\core\IProcessOneRequest.cs" />
+    <Compile Include="web\core\IProcessRequests.cs" />
+    <Compile Include="web\core\IProvideDetailsToCommands.cs" />
+    <Compile Include="web\core\IImplementAFeature.cs" />
+    <Compile Include="web\core\aspnet\IFindViewsToDisplayReportModels.cs" />
+    <Compile Include="web\core\IRedirect.cs" />
+    <Compile Include="web\core\IRegisterRoutes.cs" />
+    <Compile Include="web\core\RedirectFeature.cs" />
+    <Compile Include="web\core\ReportQuery.cs" />
+    <Compile Include="web\core\RequestCommand.cs" />
+    <Compile Include="web\core\RequestCriteria.cs" />
+    <Compile Include="web\core\RouteConfiguration.cs" />
+    <Compile Include="web\core\Routes.cs" />
+    <Compile Include="web\core\RouteTable.cs" />
+    <Compile Include="web\core\stubs\StubMissingCommand.cs" />
+    <Compile Include="web\core\stubs\StubRequestFactory.cs" />
+    <Compile Include="web\core\UrlBuilder.cs" />
+    <Compile Include="web\core\ViewAReport.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

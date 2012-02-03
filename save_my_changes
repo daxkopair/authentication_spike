@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+require_relative 'git_utils.rb'
+
+exit_if_on_the_master_branch
+
+`git add -A`
+`git commit -m "Pushing new changes"`
+`git push origin`
+

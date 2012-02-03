@@ -1,0 +1,51 @@
+#!/usr/bin/env ruby
+
+def run_git_command(command,capture_ouptut = false)
+    full_command = "git #{command}"
+    if (capture_ouptut)
+        `#{full_command}`
+    else
+        system(full_command)
+    end
+end
+
+def get_latest_remote_branch_name(remote_name)
+  branch_pattern = /^\d*$/
+  branches = run_git_command("fetch #{remote_name}")
+  latest_branch = Dir.entries(File.join('.git','refs','remotes',remote_name)).select{|folder| branch_pattern =~ folder}.sort{|first,second| second <=> first}.first
+end
+
+def get_all_available_non_origin_remotes
+ run_git_command("remote",true).split("\n").select{|remote| /origin/ !~ remote}
+end
+
+def choose_remote(remotes)
+  remotes.each_with_index do|remote,index|
+    puts "#{index + 1} - #{remote}\n"
+  end
+
+   "Choose remote:"
+  index = gets.chomp.to_i
+
+  index == 0 ? "": remotes[index-1]
+end
+
+def update_to_latest_branch_on(remote_name)
+  run_git_command("add -A")
+  run_git_command('commit -m "Updated"')
+  run_git_command("checkout master")
+  latest_branch = get_latest_remote_branch_name(remote_name)
+
+  new_branch = "pull_#{remote_name}_#{latest_branch}"
+  run_git_command("checkout -b #{new_branch}")
+  run_git_command("checkout #{new_branch}")
+  run_git_command("pull #{remote_name} #{latest_branch}")
+end
+
+remote_name = ARGV.shift
+remote_name = choose_remote(get_all_available_non_origin_remotes) if remote_name == nil
+update_to_latest_branch_on(remote_name) unless remote_name.empty?
+
+
+
+

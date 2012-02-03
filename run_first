@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+require_relative 'git_utils.rb'
+
+def install_utilities
+  `gem install bundler`
+  `bundle install`
+end
+
+def configure_remote
+  `git remote rm jp`
+  `git remote add jp git://github.com/20120123orlando/app.git`
+end
+
+def create_first_branch
+  checkout("start_of_week")
+end
+
+install_utilities
+configure_remote
+create_first_branch
