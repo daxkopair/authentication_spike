@@ -5,20 +5,20 @@ namespace app.web.application.interceptors
   public class MakeSureTheUserIsAuthenticated<RequestToForwardToIfNotAuthenticated> : IInterceptWithoutForwardingTheCall
   {
     IRedirect redirect;
-      GetTheCurrentPrincipal the_current_principal;
+    GetTheCurrentPrincipal_Behaviour the_current_principal_behaviour;
 
-      public MakeSureTheUserIsAuthenticated(IRedirect redirect, GetTheCurrentPrincipal the_current_principal)
-      {
-          this.redirect = redirect;
-          this.the_current_principal = the_current_principal;
-      }
-
-      public void process(IProvideDetailsToCommands request)
+    public MakeSureTheUserIsAuthenticated(IRedirect redirect, GetTheCurrentPrincipal_Behaviour the_current_principal_behaviour)
     {
-        var principal = the_current_principal();
-        if (principal.Identity.IsAuthenticated)
-            return;
-        redirect.to<RequestToForwardToIfNotAuthenticated>();
+      this.redirect = redirect;
+      this.the_current_principal_behaviour = the_current_principal_behaviour;
+    }
+
+    public void process(IProvideDetailsToCommands request)
+    {
+      var principal = the_current_principal_behaviour();
+      if (principal.Identity.IsAuthenticated)
+        return;
+      redirect.to<RequestToForwardToIfNotAuthenticated>();
     }
   }
 }

@@ -16,6 +16,7 @@ namespace app.tasks.startup.steps
       startup_service.register<ViewTheMainDepartments>();
       startup_service.register<ViewTheDepartmentsInADepartment>();
       startup_service.register<ViewTheProductsInADepartment>();
+      startup_service.register<Login>();
     }
   }
 }

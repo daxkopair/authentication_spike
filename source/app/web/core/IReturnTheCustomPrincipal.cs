@@ -2,5 +2,5 @@
 
 namespace app.web.core
 {
-    public delegate IPrincipal GetTheCurrentPrincipal();
+    public delegate IPrincipal GetTheCurrentPrincipal_Behaviour();
 }

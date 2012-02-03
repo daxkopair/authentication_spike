@@ -2,5 +2,5 @@
 
 namespace app.web.core
 {
-    public delegate void AssociateTicketWithCurrentUser(FormsAuthenticationTicket ticket);
+    public delegate void AssociateTicketWithCurrentUser_Behaviour(FormsAuthenticationTicket ticket);
 }

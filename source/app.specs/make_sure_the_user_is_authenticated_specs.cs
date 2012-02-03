@@ -24,7 +24,7 @@ namespace app.specs
         {
           redirect = depends.on<IRedirect>();
           request = fake.an<IProvideDetailsToCommands>();
-          depends.on<GetTheCurrentPrincipal>(() => new StubPrincipal(1));
+          depends.on<GetTheCurrentPrincipal_Behaviour>(() => new StubPrincipal(1));
         };
 
         Because b = () =>
@@ -44,7 +44,7 @@ namespace app.specs
         {
           redirect = depends.on<IRedirect>();
           request = fake.an<IProvideDetailsToCommands>();
-          depends.on<GetTheCurrentPrincipal>(() => new StubPrincipal(0));
+          depends.on<GetTheCurrentPrincipal_Behaviour>(() => new StubPrincipal(0));
         };
 
         Because b = () =>

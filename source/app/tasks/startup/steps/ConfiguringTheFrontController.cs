@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Web;
 using System.Web.Compilation;
@@ -28,7 +29,7 @@ namespace app.tasks.startup.steps
       startup_service.register_instance<PageFactory>(BuildManager.CreateInstanceFromVirtualPath);
       startup_service.register_instance<GetTheCurrentlyExecutingRequest>(() => HttpContext.Current);
       startup_service.register<ICreateControllerRequests, StubRequestFactory>();
-      startup_service.register_instance<RawRedirect>(path => HttpContext.Current.Response.Redirect(path,true));
+      startup_service.register_instance<RawRedirect_Behaviour>(path => HttpContext.Current.Response.Redirect(path,true));
       startup_service.register<IRedirect, Redirect>();
       startup_service.register<ICreateOneReport, CreateOneReport>();
       startup_service.register<IFindPathsToViews, StubPathRegistry>();
@@ -37,7 +38,17 @@ namespace app.tasks.startup.steps
       startup_service.register<IDisplayInformation, WebFormDisplayEngine>();
       startup_service.register_instance<IEnumerable<IProcessOneRequest>>(route_table);
       startup_service.register_instance<IRegisterRoutes>(route_table);
-      startup_service.register_instance<GetTheCurrentPrincipal>(() => HttpContext.Current.User);
+      startup_service.register_instance<GetTheCurrentPrincipal_Behaviour>(() => HttpContext.Current.User);
+      startup_service.register_instance<CreateAuthenticationTicketBehaviour>(
+        user => new FormsAuthenticationTicket(100, user, DateTime.Now, DateTime.Now.AddDays(1), false, "1001"));
+      startup_service.register_instance<Authentication_Behaviour>((user,pass) => true);
+      startup_service.register_instance<AssociateTicketWithCurrentUser_Behaviour>(
+        ticket =>
+        {
+          var cookie = new HttpCookie(FormsAuthentication.FormsCookieName,
+                                      FormsAuthentication.Encrypt(ticket));
+          HttpContext.Current.Response.Cookies.Add(cookie);
+        });
       startup_service.register<IFindCommands, CommandRegistry>();
       startup_service.register<IProcessRequests, FrontController>();
 

@@ -167,7 +167,7 @@
     <Compile Include="web\core\AssociateTicketWithTheCurrentUser.cs" />
     <Compile Include="web\core\ChainedAction.cs" />
     <Compile Include="web\core\CommandRegistry.cs" />
-    <Compile Include="web\core\CreateAuthenticationTicket.cs" />
+    <Compile Include="web\core\CreateAuthenticationTicketBehaviour.cs" />
     <Compile Include="web\core\FrontController.cs" />
     <Compile Include="web\core\GetTheCurrentUserIDFromTicket.cs" />
     <Compile Include="web\core\IChangeSystemState.cs" />
@@ -176,7 +176,7 @@
     <Compile Include="web\core\IFetchInformation.cs" />
     <Compile Include="web\core\IInterceptWithoutForwardingTheCall.cs" />
     <Compile Include="web\core\IReturnTheCustomPrincipal.cs" />
-    <Compile Include="web\core\IsAuthorizedUser.cs" />
+    <Compile Include="web\core\Authentication_Behaviour.cs" />
     <Compile Include="web\core\ITriggerDisplayOfAReport.cs" />
     <Compile Include="web\core\IDisplayInformation.cs" />
     <Compile Include="web\core\IFindCommands.cs" />

@@ -4,11 +4,11 @@ namespace app.web.core.stubs
 {
   public class StubPrincipal : IPrincipal
   {
-    long id;
+    public long user_id { get; set; }
 
     public StubPrincipal(long id)
     {
-      this.id = id;
+      this.user_id = id;
     }
 
     public bool IsInRole(string role)
@@ -18,8 +18,9 @@ namespace app.web.core.stubs
 
     public IIdentity Identity
     {
-      get { return new StubIdentity(id);}
+      get { return new StubIdentity(user_id);}
     }
+
   }
 
   public class StubIdentity : IIdentity

@@ -21,10 +21,10 @@ namespace app.specs
         Establish c = () =>
         {
           the_created_ticket = ObjectFactory.web.create_fake_authentication_ticket();
-          depends.on<IsAuthorizedUser>((user, pass) => true);
+          depends.on<Authentication_Behaviour>((user, pass) => true);
           request = fake.an<IProvideDetailsToCommands>();
-          depends.on<CreateAuthenticationTicket>(username => the_created_ticket);
-          depends.on<AssociateTicketWithCurrentUser>(x =>
+          depends.on<CreateAuthenticationTicketBehaviour>(username => the_created_ticket);
+          depends.on<AssociateTicketWithCurrentUser_Behaviour>(x =>
           {
             updated_ticket = x;
             x.ShouldEqual(the_created_ticket);

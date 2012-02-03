@@ -4,13 +4,13 @@
   {
     void to<Request>(); 
   }
-  public delegate void RawRedirect(string url);
+  public delegate void RawRedirect_Behaviour(string url);
 
   public class Redirect : IRedirect
   {
-    RawRedirect raw;
+    RawRedirect_Behaviour raw;
 
-    public Redirect(RawRedirect raw)
+    public Redirect(RawRedirect_Behaviour raw)
     {
       this.raw = raw;
     }
