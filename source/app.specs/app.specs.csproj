@@ -132,7 +132,7 @@
     <Compile Include="GreedyConstructorSelectionSpecs.cs" />
     <Compile Include="login_specs.cs" />
     <Compile Include="LogSpecs.cs" />
-    <Compile Include="make_sure_the_user_id_in_the_url_matches_the_user_id_on_the_principal.cs" />
+    <Compile Include="make_sure_the_user_id_in_the_url_matches_the_user_id_on_the_principal_specs.cs" />
     <Compile Include="make_sure_the_user_is_authenticated_specs.cs" />
     <Compile Include="MessageGeneratorSpecs.cs" />
     <Compile Include="ObjectExtensionsSpecs.cs" />
