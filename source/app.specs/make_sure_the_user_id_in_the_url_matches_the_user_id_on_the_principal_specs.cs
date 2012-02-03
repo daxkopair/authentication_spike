@@ -1,4 +1,5 @@
-﻿using Machine.Specifications;
+﻿using System;
+using Machine.Specifications;
 using app.web.core;
 using developwithpassion.specifications.extensions;
 using developwithpassion.specifications.rhinomocks;
@@ -21,7 +22,13 @@ namespace app.specs
         Establish context = () =>
         {
           request = fake.an<IProvideDetailsToCommands>();
-          depends.on<IsAuthorizedUrl_Behaviour>(url => true);
+           the_uri = new Uri("blah"); 
+          depends.on<GetTheCurrentUrl_Behaviour>(() => the_uri);
+          depends.on<IsAuthorizedUrl_Behaviour>(url =>
+              {
+                  url.ShouldEqual(the_uri);
+                  return true;
+              });
           redirect = depends.on<IRedirect>();
         };
 
@@ -34,7 +41,18 @@ namespace app.specs
 
         static IRedirect redirect;
         static IProvideDetailsToCommands request;
+          static Uri the_uri;
       }
+
+
+        public class and_the_user_ids_are_not_the_same
+        {
+            It should_redirect_to_the_redirect_request = () =>
+                {
+                };
+
+            static IRedirect redirect;
+        }
     }
 
     public class SomeRequest
