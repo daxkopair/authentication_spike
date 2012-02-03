@@ -34,6 +34,10 @@ namespace app.tasks.startup.steps
         .intercept_with<DisplayAuthenticationDetails>()
         .intercept_with<AttachCustomPrincipal>();
 
+      Routes.to.a_command<LogoutRequest, Logout, ViewTheMainDepartmentsRequest>()
+        .intercept_with<DisplayAuthenticationDetails>()
+        .intercept_with<AttachCustomPrincipal>();
+
       Routes.to.prepare_routes();
     }
   }
