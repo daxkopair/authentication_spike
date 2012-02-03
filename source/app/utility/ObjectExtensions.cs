@@ -4,7 +4,7 @@
     {
       public static CastType cast_to<CastType>(this object item)
       {
-        
+          return (CastType)item;
       }
     }
 }
