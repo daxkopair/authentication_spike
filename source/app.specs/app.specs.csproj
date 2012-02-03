@@ -115,6 +115,7 @@
   <ItemGroup>
     <Compile Include="AddItemsToTheCartSpecs.cs" />
     <Compile Include="ASPHandlerSpecs.cs" />
+    <Compile Include="AttachCustomPrincipalSpecs.cs" />
     <Compile Include="AutomaticItemFactorySpecs.cs" />
     <Compile Include="BasicItemFactorySpecs.cs" />
     <Compile Include="BlockBuilderFactorySpecs.cs" />

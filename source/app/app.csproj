@@ -142,6 +142,7 @@
     <Compile Include="web\application\catalogbrowsing\reports\ViewTheProductsInADepartment.cs" />
     <Compile Include="web\application\catalogbrowsing\stubs\StubStoreDirectory.cs" />
     <Compile Include="web\application\catalogbrowsing\inputmodels\VIewTheMainDepartmentsRequest.cs" />
+    <Compile Include="web\application\interceptors\AttachCustomPrincipal.cs" />
     <Compile Include="web\application\messages\AddItemsToTheCartMessage.cs" />
     <Compile Include="web\application\messages\IAddedItemsToTheCart.cs" />
     <Compile Include="web\core\AddItemsToTheCart.cs" />
@@ -160,6 +161,7 @@
     <Compile Include="web\core\ChainedAction.cs" />
     <Compile Include="web\core\CommandRegistry.cs" />
     <Compile Include="web\core\FrontController.cs" />
+    <Compile Include="web\core\GetTheCurrentUserIDFromTicket.cs" />
     <Compile Include="web\core\IChangeSystemState.cs" />
     <Compile Include="web\core\IConfigureARoute.cs" />
     <Compile Include="web\core\ICreateControllerRequests.cs" />
@@ -175,6 +177,8 @@
     <Compile Include="web\core\aspnet\IFindViewsToDisplayReportModels.cs" />
     <Compile Include="web\core\IRedirect.cs" />
     <Compile Include="web\core\IRegisterRoutes.cs" />
+    <Compile Include="web\core\PrincipalFactory.cs" />
+    <Compile Include="web\core\PrincipalSwitch.cs" />
     <Compile Include="web\core\RedirectFeature.cs" />
     <Compile Include="web\core\ReportQuery.cs" />
     <Compile Include="web\core\RequestCommand.cs" />
@@ -184,6 +188,7 @@
     <Compile Include="web\core\RouteTable.cs" />
     <Compile Include="web\core\stubs\StubMissingCommand.cs" />
     <Compile Include="web\core\stubs\StubRequestFactory.cs" />
+    <Compile Include="web\core\TicketFactory.cs" />
     <Compile Include="web\core\UrlBuilder.cs" />
     <Compile Include="web\core\ViewAReport.cs" />
   </ItemGroup>
